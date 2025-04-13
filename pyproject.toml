@@ -1,0 +1,14 @@
+[project]
+name = "reed"
+version = "0.1.0"
+description = "Textify a resource"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "beautifulsoup4>=4.13.3",
+    "httpx>=0.28.1",
+    "lxml[html-clean]>=5.3.2",
+    "pdftotext>=3.0.0",
+    "readability-lxml>=0.8.1",
+    "yt-dlp>=2025.3.31",
+]
