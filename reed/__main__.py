@@ -2,6 +2,7 @@
 
 import fileinput
 import sys
+import urllib.parse
 
 import httpx
 import yt_dlp
@@ -9,9 +10,6 @@ from bs4 import BeautifulSoup as Bs
 from pdftotext import PDF
 from readability import Document
 from yt_dlp.utils import DownloadError
-
-import urllib.parse
-
 
 
 def main() -> int:
