@@ -4,6 +4,7 @@ from unittest.mock import MagicMock, call
 import httpx
 import hypothesis.provisional as pstrats
 import hypothesis.strategies as strats
+import pytest
 from hypothesis import given
 
 from reed.web import fetch, is_url
@@ -36,3 +37,14 @@ class TestFetch:
         ]
         assert response.status_code == HTTPStatus.OK
         assert response.content == b"OK"
+
+    @given(
+        url=pstrats.urls(),
+        timeout=strats.integers(min_value=1, max_value=10),
+    )
+    def test_fetch_timeout(self, url, timeout):
+        client = MagicMock(httpx.Client)
+        client.get.side_effect = httpx.TimeoutException(message="timed out")
+
+        with pytest.raises(httpx.TimeoutException):
+            fetch(client, httpx.URL(url), timeout)

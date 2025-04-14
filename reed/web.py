@@ -17,6 +17,7 @@ def is_url(string: str) -> bool:
     return all([result.scheme, result.netloc])
 
 
+@deal.raises(httpx.TimeoutException)
 def fetch(client: httpx.Client, url: httpx.URL, timeout: int = 10):
     """Get the content from a page at a URL."""
     return client.get(
