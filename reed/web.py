@@ -18,7 +18,11 @@ def is_url(string: str) -> bool:
 
 
 @deal.raises(httpx.RequestError, httpx.TimeoutException)
-def fetch(client: httpx.Client, url: httpx.URL, timeout: int = 10):
+def fetch(
+    client: httpx.Client,
+    url: httpx.URL,
+    timeout: int = 10,
+) -> httpx.Response:
     """Get the content from a page at a URL."""
     return client.get(
         url=url,
