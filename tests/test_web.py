@@ -42,9 +42,10 @@ class TestFetch:
         url=pstrats.urls(),
         timeout=strats.integers(min_value=1, max_value=10),
     )
-    def test_fetch_timeout(self, url, timeout):
-        client = MagicMock(httpx.Client)
-        client.get.side_effect = httpx.TimeoutException(message="timed out")
+    def test_exceptions(self, url, timeout):
+        for exc in (httpx.RequestError, httpx.TimeoutException):
+            client = MagicMock(httpx.Client)
+            client.get.side_effect = exc(message="timed out")
 
-        with pytest.raises(httpx.TimeoutException):
-            fetch(client, httpx.URL(url), timeout)
+            with pytest.raises(exc):
+                fetch(client, httpx.URL(url), timeout)
