@@ -27,6 +27,18 @@ dev = [
     "types-beautifulsoup4>=4.12.0.20250204",
 ]
 
+[tool.pytest.ini_options]
+testpaths = "tests"
+console_output_style = "progress"
+addopts = [
+    "--cov=reed",
+    "--doctest-modules",
+    "--strict-config",
+    "--strict-markers",
+    "-rA",
+]
+filterwarnings = ["error"]
+
 [tool.mypy]
 plugins = ["deal.mypy"]
 
