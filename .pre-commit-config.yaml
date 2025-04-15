@@ -73,11 +73,11 @@ repos:
         types: [python]
         pass_filenames: true
 
-      # - id: deal lint
-      #   name: deal lint
-      #   language: system
-      #   entry: uv run python3 -m deal lint
-      #   types: [python]
+      - id: deal lint
+        name: deal lint
+        language: system
+        entry: uv run python3 -m deal lint
+        types: [python]
 
       - id: mypy
         name: mypy
