@@ -1,5 +1,5 @@
 [project]
-name = "reed"
+name = "reeder"
 version = "0.1.0"
 description = "Textify a resource"
 readme = "README.md"
