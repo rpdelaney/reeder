@@ -1,24 +1,34 @@
 """Do the business."""
 
-import fileinput
 import sys
-import urllib.parse
 
 import httpx
-import yt_dlp
-from bs4 import BeautifulSoup as Bs
-from pdftotext import PDF
-from readability import Document
-from yt_dlp.utils import DownloadError
+
+from reed.content import ContentRenderer
+from reed.web import fetch
 
 
 def main() -> int:
     """Texitfy a URL."""
-    with fileinput.input() as data:
-        if not data:
-            return 1
-        for line in data:
-            print(line)
+    webclient = httpx.Client()
+
+    response = fetch(webclient, httpx.URL(sys.argv[1]))
+    renderer = ContentRenderer(data=response.content)
+    content_type, charset = response.headers.get("Content-Type").split(";")
+
+    match content_type:
+        case "text/plain":
+            print(renderer.render_text())
+        case "text/html":
+            print(renderer.render_html())
+        case "application/pdf":
+            print(renderer.render_pdf())
+        case _:
+            msg = (
+                "Unsupported Content-Type: "
+                f"{response.headers.get('Content-Type')}"
+            )
+            raise RuntimeError(msg)
 
     return 0
 

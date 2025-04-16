@@ -27,16 +27,16 @@ class ContentRenderer:
         """Render text from HTML.
 
         If make_readable is True, try to extract the text content with
-        pyreadability.
+        python-readability.
         """
-        soup = Bs(self._data, "html.parser")
-        doctext = soup.get_text()
-        if make_readable:
-            readable_doc = readability.Document(doctext)
-            title: str = readable_doc.short_title()
-            summary: str = Bs(readable_doc.summary(), "lxml").text
-            return f"{title}\n{summary}"
-        return doctext
+        if not make_readable:
+            soup = Bs(self._data, "html.parser")
+            return soup.get_text()
+
+        readable_doc = readability.parse(self.render_text())
+        title: str = readable_doc.title
+        summary: str = readable_doc.text_content
+        return f"{title}\n{summary}"
 
     def render_pdf(self) -> str:
         """Render text from PDF."""
