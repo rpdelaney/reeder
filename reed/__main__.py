@@ -2,17 +2,20 @@
 
 import sys
 
+import click
 import httpx
 
 from reed.content import ContentRenderer
 from reed.web import fetch
 
 
-def main() -> int:
+@click.command()
+@click.argument("target")
+def main(target: str) -> int:
     """Texitfy a URL."""
     webclient = httpx.Client()
 
-    response = fetch(webclient, httpx.URL(sys.argv[1]))
+    response = fetch(webclient, httpx.URL(target))
     renderer = ContentRenderer(data=response.content)
     content_type = response.headers.get("Content-Type").split(";")[0]
 
