@@ -14,7 +14,7 @@ def main() -> int:
 
     response = fetch(webclient, httpx.URL(sys.argv[1]))
     renderer = ContentRenderer(data=response.content)
-    content_type, charset = response.headers.get("Content-Type").split(";")
+    content_type = response.headers.get("Content-Type").split(";")[0]
 
     match content_type:
         case "text/plain":
