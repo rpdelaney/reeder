@@ -13,6 +13,9 @@ dependencies = [
     "yt-dlp>=2025.3.31",
 ]
 
+[project.scripts]
+reed = "reed.__main__:main"
+
 [dependency-groups]
 dev = [
     "deal-solver>=0.1.2",
