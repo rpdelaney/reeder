@@ -34,4 +34,9 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    try:
+        exit_status = main()
+    except Exception as e:  # noqa: BLE001
+        print("An unhandled exception occurred: ", e, file=sys.stderr)
+        exit_status = 1
+    sys.exit(exit_status)
