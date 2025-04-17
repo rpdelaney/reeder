@@ -34,7 +34,7 @@ dev = [
 package = true
 
 [tool.pytest.ini_options]
-testpaths = "tests"
+testpaths = ["reed", "tests"]
 console_output_style = "progress"
 addopts = [
     "--cov=reed",
