@@ -1,0 +1,14 @@
+[run]
+branch = true
+omit =
+    tests/*
+
+# concurrency
+concurrency = multiprocessing
+parallel = true
+sigterm = true
+
+[report]
+skip_empty = true
+show_missing = true
+# fail_under = 100
