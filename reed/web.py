@@ -30,7 +30,15 @@ deal.module_load(deal.pure)
     """,
 )
 def is_url(string: str) -> bool:
-    """Return whether the string is a URL."""
+    """Return whether the string is a URL.
+
+    >>> is_url("https://foobarbaz.com")
+    True
+    >>> is_url("./foobarbaz.com")
+    False
+    >>> is_url("/path/to/file.pdf")
+    False
+    """
     result = urlparse(string)
     return all([result.scheme, result.netloc])
 
