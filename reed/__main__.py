@@ -24,11 +24,11 @@ def main(target: str) -> int:
 
     match content_type:
         case "text/plain":
-            print(renderer.render_text())
+            print(renderer.text())
         case "text/html":
-            print(renderer.render_html())
+            print(renderer.html())
         case "application/pdf":
-            print(renderer.render_pdf())
+            print(renderer.pdf())
         case _:
             msg = (
                 "Unsupported Content-Type: "
