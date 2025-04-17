@@ -19,7 +19,12 @@ class ContentRenderer:
     @property
     @deal.pure
     def data(self) -> bytes:
-        """Provide read-only access to the data."""
+        """Provide read-only access to the data.
+
+        >>> r = ContentRenderer(b"aaa")
+        >>> r.data
+        b'aaa'
+        """
         return self._data
 
     @deal.pure
