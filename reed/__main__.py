@@ -3,12 +3,15 @@
 import sys
 
 import click
+import deal
 import httpx
 
 from reed.content import ContentRenderer
 from reed.web import fetch
 
 
+@deal.has("stdout")
+@deal.raises(RuntimeError, httpx.RequestError, httpx.TimeoutException)
 @click.command()
 @click.argument("target")
 def main(target: str) -> int:

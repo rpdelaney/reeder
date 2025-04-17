@@ -17,6 +17,7 @@ def is_url(string: str) -> bool:
     return all([result.scheme, result.netloc])
 
 
+@deal.has()
 @deal.raises(httpx.RequestError, httpx.TimeoutException)
 def fetch(
     client: httpx.Client,
