@@ -33,16 +33,14 @@ class ContentRenderer:
         return self._data.decode(encoding="utf-8", errors="replace")
 
     @deal.pure
-    def html(self, *, make_readable: bool = True) -> str:
-        """Render text from HTML.
+    def html(self) -> str:
+        """Render text from HTML."""
+        soup = Bs(self._data, "html.parser")
+        return soup.get_text()
 
-        If make_readable is True, try to extract the text content with
-        python-readability.
-        """
-        if not make_readable:
-            soup = Bs(self._data, "html.parser")
-            return soup.get_text()
-
+    @deal.pure
+    def html_readable(self) -> str:
+        """Render text from HTML, using python-readability."""
         readable_doc = readability.parse(self.text())
         title: str = readable_doc.title
         summary: str = readable_doc.text_content

@@ -26,7 +26,7 @@ def main(target: str) -> int:
         case "text/plain":
             print(renderer.text())
         case "text/html":
-            print(renderer.html())
+            print(renderer.html_readable())
         case "application/pdf":
             print(renderer.pdf())
         case _:
