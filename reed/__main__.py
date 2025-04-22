@@ -7,15 +7,27 @@ import deal
 import httpx
 
 from reed.content import ContentRenderer
-from reed.web import fetch
+from reed.web import fetch, is_url
 
 
 @deal.has("stdout", "network")
-@deal.raises(RuntimeError, httpx.RequestError, httpx.TimeoutException)
+@deal.raises(
+    RuntimeError,
+    NotImplementedError,
+    httpx.RequestError,
+    httpx.TimeoutException,
+)
 @click.command()
 @click.argument("target")
 def main(target: str) -> int:
-    """Texitfy a URL."""
+    """Texitfy content found at TARGET. TARGET can be a URL or a file path."""
+    if not is_url(target):
+        msg = (
+            "TARGET must be a URL accessible via networking. "
+            "Local filesystem is not yet supported."
+        )
+        raise NotImplementedError(msg)
+
     webclient = httpx.Client()
 
     response = fetch(webclient, httpx.URL(target))
