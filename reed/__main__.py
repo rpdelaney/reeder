@@ -10,6 +10,10 @@ from reed.content import ContentRenderer
 from reed.web import fetch, is_url
 
 
+deal.activate()
+deal.module_load(deal.pure)
+
+
 @deal.has("stdout", "network")
 @deal.raises(
     RuntimeError,

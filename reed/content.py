@@ -8,6 +8,10 @@ from bs4 import BeautifulSoup as Bs
 from pdftotext import PDF
 
 
+deal.activate()
+deal.module_load(deal.pure)
+
+
 class ContentRenderer:
     """Provide rendering for various document types."""
 
