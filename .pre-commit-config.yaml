@@ -45,11 +45,6 @@ repos:
       - id: rst-directive-colons
       - id: rst-inline-touching-normal
 
-  - repo: https://github.com/PyCQA/doc8
-    rev: v1.1.2
-    hooks:
-      - id: doc8
-
   - repo: https://github.com/asottile/pyupgrade
     rev: v3.19.1
     hooks:
