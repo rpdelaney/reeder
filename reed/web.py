@@ -40,7 +40,7 @@ def is_url(string: str) -> bool:
     False
     """
     result = urlparse(string)
-    return all([result.scheme, result.netloc])
+    return bool(result.scheme and result.netloc)
 
 
 @deal.has("network")
