@@ -4,13 +4,6 @@ name: Tests
 on:
   pull_request:
   push:
-    branches: [main]
-    paths:
-      - .pre-commit-config.yaml
-      - pyproject.toml
-      - reeder/**
-      - tests/**
-      - uv.lock
 
 jobs:
   lint:
