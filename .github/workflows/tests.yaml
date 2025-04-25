@@ -67,7 +67,7 @@ jobs:
         run: uv run --frozen pytest
 
   verify:
-    name: target for successful lint and test jobs
+    name: tests_success  # target for successful lint and test jobs
     runs-on: ubuntu-latest
     needs: [lint, test]
     steps:
