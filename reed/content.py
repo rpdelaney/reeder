@@ -53,4 +53,4 @@ class ContentRenderer:
     @deal.pure
     def pdf(self) -> str:
         """Render text from PDF."""
-        return "\n\n".join(extract_text(io.BytesIO(self._data)))
+        return extract_text(io.BytesIO(self._data))
