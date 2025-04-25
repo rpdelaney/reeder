@@ -5,7 +5,7 @@ import io
 import deal
 import readability
 from bs4 import BeautifulSoup as Bs
-from pdftotext import PDF
+from pdfminer.high_level import extract_text
 
 
 deal.activate()
@@ -53,4 +53,4 @@ class ContentRenderer:
     @deal.pure
     def pdf(self) -> str:
         """Render text from PDF."""
-        return "\n\n".join(PDF(io.BytesIO(self._data)))
+        return "\n\n".join(extract_text(io.BytesIO(self._data)))

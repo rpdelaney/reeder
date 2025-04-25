@@ -15,7 +15,7 @@ def test_is_url(url):
     assert is_url(url)
 
 
-@given(strats.text())
+@given(strats.emails())
 def test_is_not_url(noturl):
     assert not is_url(noturl)
 
