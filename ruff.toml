@@ -64,7 +64,14 @@ unfixable = [
 
 [lint.per-file-ignores]
 "__init__.py" = ["D104", "E402"]
-"**/{tests,docs}/*" = ["ARG", "ANN", "D", "S", "PT015", "B011"]
+"**/{tests, docs}/*" = [
+    "ANN",
+    "ARG",
+    "B011",
+    "D",
+    "PT015",
+    "S",
+]
 
 [lint.mccabe]
 max-complexity = 10
