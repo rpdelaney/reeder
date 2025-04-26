@@ -22,7 +22,7 @@ deal.module_load(deal.pure)
     httpx.TimeoutException,
 )
 @click.command()
-@click.argument("target")
+@click.argument("target", callback=lambda _ctx, _param, value: value.strip())
 def main(target: str) -> int:
     """Texitfy content found at TARGET. TARGET can be a URL or a file path."""
     if not is_url(target):
