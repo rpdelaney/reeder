@@ -33,7 +33,12 @@ class ContentRenderer:
 
     @deal.pure
     def text(self) -> str:
-        """Render text from... text."""
+        r"""Render text from... text.
+
+        >>> r = ContentRenderer(b"aaa\xff\xfe\xfd")
+        >>> r.text()
+        'aaa���'
+        """
         return self._data.decode(encoding="utf-8", errors="replace")
 
     @deal.pure
