@@ -1369,6 +1369,7 @@ dev = [
     { name = "pytest-mock" },
     { name = "ruff" },
     { name = "types-beautifulsoup4" },
+    { name = "yt-dlp-types" },
 ]
 
 [package.metadata]
@@ -1394,6 +1395,7 @@ dev = [
     { name = "pytest-mock", specifier = ">=3.14.0" },
     { name = "ruff", specifier = ">=0.11.5" },
     { name = "types-beautifulsoup4", specifier = ">=4.12.0.20250204" },
+    { name = "yt-dlp-types", specifier = ">=0.0.15" },
 ]
 
 [[package]]
@@ -1632,6 +1634,18 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/a2/11/333d16f88b1515d4c601e1dfbf1028e6798f0b2a8ff1dc5aaa7b797aa9e8/yt_dlp-2025.3.31.tar.gz", hash = "sha256:1bfe0e660d1a70a09e27b2d58f92e30b1e2e362cc487829f2f824346ae49fb91", size = 2967466, upload_time = "2025-03-31T22:03:52.176Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/a8/bf/7b0affb8f163376309696cfd1c677818fa0969fbb9d88225087208799afe/yt_dlp-2025.3.31-py3-none-any.whl", hash = "sha256:8ecb3aa218a3bebe431119f513a8972b9b9d992edf67168c00ab92329a03baec", size = 3226021, upload_time = "2025-03-31T22:03:49.185Z" },
+]
+
+[[package]]
+name = "yt-dlp-types"
+version = "0.0.15"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/17/39/665ba708f009e03a3c619f43704e99e1437121f9269f5a6f7a6861947e28/yt_dlp_types-0.0.15.tar.gz", hash = "sha256:8aaa25a081d39d89e93c480a569eefab59bb45ce2725eef19f1a7b521c985410", size = 10674, upload_time = "2025-04-13T03:33:28.571Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/59/78/39754ac202a32211348dc0413f264b1926a9541dcc9c998011385536d419/yt_dlp_types-0.0.15-py3-none-any.whl", hash = "sha256:74c2b935eeef6225f7651bb2148410085a3dd310ce481049d8adcbbb0dc12cb3", size = 13022, upload_time = "2025-04-13T03:33:27.271Z" },
 ]
 
 [[package]]
