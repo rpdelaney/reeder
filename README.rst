@@ -1,10 +1,9 @@
 reeder
 ======================
-|LANGUAGE| |VERSION| |BUILD| |MAINTAINED| |MAINTAINABILITY|
-|LICENSE| |STYLE|
+|LANGUAGE| |VERSION| |BUILD| |MAINTAINED| |LICENSE| |STYLE|
 
-.. |BUILD| image:: https://github.com/rpdelaney/reeder/actions/workflows/integration.yaml/badge.svg
-   :target: https://github.com/rpdelaney/reeder/actions/workflows/integration.yaml
+.. |BUILD| image:: https://github.com/rpdelaney/reeder/actions/workflows/tests.yaml/badge.svg
+   :target: https://github.com/rpdelaney/reeder/actions/workflows/tests.yaml
    :alt: build status
 .. |LICENSE| image:: https://img.shields.io/badge/license-Apache%202.0-informational
    :target: https://www.apache.org/licenses/LICENSE-2.0.txt
