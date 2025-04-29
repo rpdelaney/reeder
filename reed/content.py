@@ -8,10 +8,6 @@ from bs4 import BeautifulSoup as Bs
 from pdfminer.high_level import extract_text
 
 
-deal.activate()
-deal.module_load(deal.pure)
-
-
 class ContentRenderer:
     """Provide rendering for various document types."""
 

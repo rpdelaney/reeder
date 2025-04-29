@@ -11,10 +11,6 @@ from reed.subtitles import get_subtitles
 from reed.web import fetch, is_url
 
 
-deal.activate()
-deal.module_load(deal.pure)
-
-
 @deal.has("stdout", "stderr", "network")
 @click.command()
 @click.argument("target", callback=lambda _ctx, _param, value: value.strip())

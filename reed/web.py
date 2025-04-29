@@ -6,10 +6,6 @@ import deal
 import httpx
 
 
-deal.activate()
-deal.module_load(deal.pure)
-
-
 @deal.has()
 def is_url(string: str) -> bool:
     """Return whether the string is a URL.
