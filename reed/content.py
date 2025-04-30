@@ -45,14 +45,14 @@ class ContentRenderer:
     def html(self) -> str:
         """Render text from HTML."""
         soup = Bs(self._data, "html.parser")
-        return soup.get_text()
+        return soup.get_text().strip()
 
     @deal.pure
     def html_readable(self) -> str:
         """Render text from HTML, using python-readability."""
         readable_doc = readability.parse(self.text())
-        title: str = readable_doc.title
-        summary: str = readable_doc.text_content
+        title: str = readable_doc.title.strip()
+        summary: str = readable_doc.text_content.strip()
         return f"{title}\n{summary}"
 
     @deal.pure
