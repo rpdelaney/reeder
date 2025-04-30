@@ -22,7 +22,7 @@ def has_extractor(url: httpx.URL) -> bool:
     )
 
 
-@deal.has("stdout", "stderr")
+@deal.has("stdout", "stderr", "network")
 def get_subtitles(url: httpx.URL) -> bytes:
     """Extract automatic subtitles from a video URL using yt_dlp."""
     if not has_extractor(url):
