@@ -47,16 +47,23 @@ def get_subtitles(url: httpx.URL) -> bytes:
         "skip_download": True,
         "writeautomaticsub": True,
         "subtitleslangs": ["en"],
-        "subtitlesformat": "vtt",
+        "subtitlesformat": "srt",
         "logger": YtLogger(),
         "outtmpl": str(Path(temp_dir.name) / Path("%(id)s.%(ext)s")),
         "noplaylist": True,
+        "postprocessors": [
+            {
+                "format": "srt",
+                "key": "FFmpegSubtitlesConvertor",
+                "when": "before_dl",
+            },
+        ],
     }
 
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:  # type: ignore[arg-type]
         info_dict = ydl.extract_info(str(url))
         video_id = info_dict.get("id")
-        subs_filename = Path(temp_dir.name) / Path(f"{video_id}.en.vtt")
+        subs_filename = Path(temp_dir.name) / Path(f"{video_id}.en.srt")
 
     subtitles = ""
     with (
