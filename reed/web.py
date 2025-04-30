@@ -26,7 +26,6 @@ def is_url(string: str) -> bool:
 
 
 @deal.has("network")
-@deal.raises(httpx.RequestError, httpx.TimeoutException)
 def fetch(
     client: httpx.Client,
     url: httpx.URL,

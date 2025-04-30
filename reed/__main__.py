@@ -5,7 +5,6 @@ import sys
 import click
 import deal
 import httpx
-from yt_dlp.utils import DownloadError
 
 from reed.content import ContentRenderer
 from reed.subtitles import get_subtitles
@@ -17,13 +16,6 @@ deal.module_load(deal.pure)
 
 
 @deal.has("stdout", "stderr", "network")
-@deal.raises(
-    RuntimeError,
-    NotImplementedError,
-    DownloadError,
-    httpx.RequestError,
-    httpx.TimeoutException,
-)
 @click.command()
 @click.argument("target", callback=lambda _ctx, _param, value: value.strip())
 def main(target: str) -> int:

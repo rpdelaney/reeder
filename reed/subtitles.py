@@ -9,7 +9,6 @@ import deal
 import httpx
 import yt_dlp
 from yt_dlp.extractor import gen_extractors  # type: ignore[attr-defined]
-from yt_dlp.utils import DownloadError
 
 
 @deal.pure
@@ -24,7 +23,6 @@ def has_extractor(url: httpx.URL) -> bool:
 
 
 @deal.has("stdout", "stderr")
-@deal.raises(DownloadError)
 def get_subtitles(url: httpx.URL) -> bytes:
     """Extract automatic subtitles from a video URL using yt_dlp."""
     if not has_extractor(url):
