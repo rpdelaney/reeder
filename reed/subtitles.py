@@ -1,6 +1,7 @@
 """Fetch video subtitles from a remote source."""
 
 import contextlib
+import sys
 import tempfile
 from pathlib import Path
 
@@ -22,6 +23,7 @@ def has_extractor(url: httpx.URL) -> bool:
     )
 
 
+@deal.has("stdout", "stderr")
 @deal.raises(DownloadError)
 def get_subtitles(url: httpx.URL) -> bytes:
     """Extract automatic subtitles from a video URL using yt_dlp."""
@@ -38,7 +40,7 @@ def get_subtitles(url: httpx.URL) -> bytes:
             pass
 
         def error(self, msg: str) -> None:
-            print(msg)
+            print(msg, file=sys.stderr)
 
     temp_dir = tempfile.TemporaryDirectory()
     ydl_opts = {
