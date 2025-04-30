@@ -16,7 +16,7 @@ deal.activate()
 deal.module_load(deal.pure)
 
 
-@deal.has("stdout", "network")
+@deal.has("stdout", "stderr", "network")
 @deal.raises(
     RuntimeError,
     NotImplementedError,
