@@ -2,7 +2,7 @@
 name = "reeder"
 version = "0.1.0"
 description = "Textify a resource"
-readme = "README.md"
+readme = "README.rst"
 requires-python = ">=3.10"
 dependencies = [
     "beautifulsoup4>=4.13.4",
