@@ -1,0 +1,29 @@
+#!/usr/bin/env sh
+#
+# builds and uploads a distribution to pypi
+#
+
+repo="${1:-pypi_test}"
+
+if [ "$repo" = "pypi_test" ]; then
+  repo="https://test.pypi.org/legacy/"
+  UV_PUBLISH_PASSWORD="$TWINE_TEST_PASSWORD"
+else
+  repo="https://pypi.org/legacy/"
+fi
+
+if [ -z "$UV_PUBLISH_USERNAME" ] ; then
+  echo "UV_PUBLISH_USERNAME must be set." 1>&2
+  exit 1
+fi
+
+if [ -z "$UV_PUBLISH_PASSWORD" ] ; then
+  echo "UV_PUBLISH_PASSWORD must be set." 1>&2
+  exit 1
+fi
+
+if ( set -x ; uv build ) ; then
+  ( set -x ; uv publish --publish-url "$repo" )
+else
+  exit $?
+fi
