@@ -7,6 +7,7 @@ from pathlib import Path
 
 import deal
 import httpx
+import srt  # type: ignore[import-untyped]
 import yt_dlp
 from yt_dlp.extractor import gen_extractors  # type: ignore[attr-defined]
 
@@ -63,11 +64,17 @@ def get_subtitles(url: httpx.URL) -> bytes:
         video_id = info_dict.get("id")
         subs_filename = Path(temp_dir.name) / Path(f"{video_id}.en.srt")
 
-    subtitles = ""
     with (
         contextlib.suppress(FileNotFoundError),
         Path.open(subs_filename, encoding="utf-8") as file,
     ):
-        subtitles = file.read()
+        subtitles_data = file.read()
 
-    return subtitles.encode() if subtitles else b""
+    result: list[str] = [""]
+    if subtitles_data:
+        for line in srt.parse(subtitles_data):
+            content = line.content.strip().split("\n")[0]
+            if content not in result[-1:]:
+                result.append(content)
+        return "\n".join(result).encode()
+    return b""
