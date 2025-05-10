@@ -44,12 +44,14 @@ class ContentRenderer:
         return soup.get_text().strip()
 
     @deal.pure
-    def html_readable(self) -> str:
+    def html_readable(self) -> tuple[str, str]:
         """Render text from HTML, using python-readability."""
         readable_doc = readability.parse(self.text())
+
         title: str = readable_doc.title.strip()
         summary: str = readable_doc.text_content.strip()
-        return f"{title}\n{summary}"
+
+        return title, summary
 
     @deal.pure
     def pdf(self) -> str:
