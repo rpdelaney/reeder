@@ -29,12 +29,12 @@ repos:
         args: ["--verbose"]
 
   - repo: https://github.com/woodruffw/zizmor-pre-commit
-    rev: v1.6.0
+    rev: v1.7.0
     hooks:
       - id: zizmor
 
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 40.8.0
+    rev: 40.10.4
     hooks:
       - id: renovate-config-validator
 
