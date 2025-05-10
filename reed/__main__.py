@@ -38,7 +38,11 @@ def main(target: str) -> int:
         case "text/plain":
             print(renderer.text())
         case "text/html":
-            print(renderer.html_readable())
+            title, summary = renderer.html_readable()
+            if title and summary:
+                print(f"# {title}\n\n{summary}")
+            else:
+                print(renderer.html())
         case "application/pdf":
             print(renderer.pdf())
         case _:
