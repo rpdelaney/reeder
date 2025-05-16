@@ -46,7 +46,6 @@ def get_subtitles(url: httpx.URL) -> bytes:
         "skip_download": True,
         "writeautomaticsub": True,
         "subtitleslangs": ["en"],
-        "subtitlesformat": "srt",
         "logger": YtLogger(),
         "outtmpl": str(Path(temp_dir.name) / Path("%(id)s.%(ext)s")),
         "noplaylist": True,
