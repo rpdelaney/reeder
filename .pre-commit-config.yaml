@@ -12,6 +12,7 @@ repos:
       - id: trailing-whitespace
       - id: check-executables-have-shebangs
       - id: mixed-line-ending
+        args: [--fix=lf]
       - id: check-added-large-files
       - id: check-merge-conflict
       - id: detect-private-key
@@ -20,13 +21,6 @@ repos:
       - id: check-yaml
       - id: name-tests-test
         args: [--pytest-test-first]
-
-  - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.33.0
-    hooks:
-      - id: check-github-workflows
-        name: validate github workflows
-        args: ["--verbose"]
 
   - repo: https://github.com/woodruffw/zizmor-pre-commit
     rev: v1.7.0
@@ -44,6 +38,7 @@ repos:
       - id: python-check-blanket-noqa
       - id: python-check-blanket-type-ignore
       - id: python-check-mock-methods
+      - id: python-use-type-annotations
       - id: rst-backticks
       - id: rst-directive-colons
       - id: rst-inline-touching-normal
