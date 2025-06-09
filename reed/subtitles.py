@@ -9,7 +9,7 @@ import deal
 import httpx
 import srt  # type: ignore[import-untyped]
 import yt_dlp
-from yt_dlp.extractor import gen_extractors  # type: ignore[attr-defined]
+from yt_dlp.extractor import gen_extractors
 
 
 @deal.pure
