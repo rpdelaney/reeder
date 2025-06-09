@@ -25,5 +25,11 @@ indent_size = 2
 [*.json*]
 indent_size = 2
 
+[.envrc]
+indent_size = 2
+
+[scripts/ship]
+indent_size = 2
+
 [LICENSE]
 insert_final_newline = unset
