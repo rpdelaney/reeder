@@ -1,0 +1,28 @@
+[pre-commit]
+    parallel = true
+
+[pre-commit.commands.format]
+    run = "timeout --verbose 5 uv run ruff format {staged_files}"
+    stage_fixed = true
+    glob = "*.py"
+
+[pre-commit.commands.lint]
+    run = "timeout --verbose 5 uv run ruff check --fix {staged_files}"
+    stage_fixed = true
+    glob = "*.py"
+
+[pre-commit.commands.lint_types]
+    run = "timeout --verbose 5 uv run mypy {staged_files}"
+    glob = "*.py"
+
+# TODO: deal lint fails. possibly a bug in deal ?
+#[pre-commit.commands.lint_contracts]
+#    run = "timeout --verbose 5 uv run python3 -m deal lint {staged_files}"
+#    glob = "*.py"
+#    exclude = [
+#        "tests/*"
+#    ]
+
+[pre-commit.commands.legacy]
+    run = "timeout --verbose 5 uv run pre-commit run --all-files --show-diff-on-failure"
+    stage_fixed = true
