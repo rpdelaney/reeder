@@ -35,13 +35,13 @@ jobs:
         with:
           path: .venv
           key: venv-${{ runner.os }}-${{ matrix.python-version }}-${{ hashFiles('**/uv.lock') }}
-      - name: cache pre-commit hooks
+      - name: cache git hooks
         uses: actions/cache@5a3ec84eff668545956fd18022155c47e93e2684  # v4.2.3
         with:
-          path: ~/.cache/pre-commit
-          key: pre-commit-cache-${{ runner.os }}-${{ hashFiles('.pre-commit-config.yaml') }}
+          path: ~/.cache/git
+          key: git-hooks-cache-${{ runner.os }}-${{ hashFiles('.pre-commit-config.yaml') }}
           restore-keys: |
-            pre-commit-cache-${{ runner.os }}-
+            git-hooks-cache-${{ runner.os }}-
       - name: Install dependencies if cached venv not found
         if: steps.cached-dependencies.outputs.cache-hit != 'true'
         run: uv sync --all-extras --frozen
