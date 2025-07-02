@@ -2,19 +2,13 @@
     parallel = true
 
 [pre-commit.commands.format]
-    name = "format the code"
-    run = "timeout --verbose 5 uv run --frozen ruff format {staged_files}"
-    stage_fixed = true
-    glob = "*.py"
-
-[pre-commit.commands.lint]
-    name = "lint and fix the code"
-    run = "timeout --verbose 5 uv run --frozen ruff check --fix {staged_files}"
+    name = "lint, fix, and format the code"
+    run = "timeout --verbose 5 uv run --frozen ruff check --fix {staged_files} && uv run --frozen ruff format {staged_files}"
     stage_fixed = true
     glob = "*.py"
 
 [pre-commit.commands.lint_types]
-    name = "lint types in code"
+    name = "check static types"
     run = "timeout --verbose 5 uv run --frozen mypy {staged_files}"
     glob = "*.py"
 
