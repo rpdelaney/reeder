@@ -49,11 +49,6 @@ repos:
       - id: pyupgrade
         args: [--py311-plus]
 
-  - repo: https://github.com/shellcheck-py/shellcheck-py
-    rev: v0.10.0.1
-    hooks:
-      - id: shellcheck
-
   - repo: https://github.com/abravalheri/validate-pyproject
     rev: v0.24.1
     hooks:

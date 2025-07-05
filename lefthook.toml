@@ -12,6 +12,11 @@
     run = "timeout --verbose 5 uv run --frozen mypy {staged_files}"
     glob = "*.py"
 
+[pre-commit.commands.shellcheck]
+    name = "run shellcheck"
+    run = "timeout --verbose 5 uvx --from shellcheck-py shellcheck {staged_files}"
+    glob = "./scripts/*"
+
 # TODO: deal lint fails. possibly a bug in deal ?
 #[pre-commit.commands.lint_contracts]
 #    name = "lint contracts in code"
