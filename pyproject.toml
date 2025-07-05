@@ -33,6 +33,7 @@ dev = [
     "deal-solver>=0.1.2",
     "hypothesis>=6.131.0",
     "mypy>=1.15.0",
+    "pre-commit>=4.2.0",
     "ptpython>=3.0.29",
     "pytest>=8.3.5",
     "pytest-cov>=6.1.1",
