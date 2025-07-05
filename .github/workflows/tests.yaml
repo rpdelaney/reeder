@@ -46,8 +46,8 @@ jobs:
         if: steps.cached-dependencies.outputs.cache-hit != 'true'
         run: uv sync --all-extras --frozen
 
-      - name: run pre-commit
-        run: uv tool run pre-commit run --all-files --show-diff-on-failure
+      - name: run lefthook
+        run: uv tool run lefthook run pre-commit --all-files
 
   test:
     strategy:
