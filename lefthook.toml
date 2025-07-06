@@ -14,7 +14,7 @@
 
 [pre-commit.commands.shellcheck]
     name = "run shellcheck"
-    run = "uvx --from shellcheck-py shellcheck {staged_files}"
+    run = "uv run shellcheck {staged_files}"
     glob = "./scripts/*"
 
 # TODO: deal lint fails. possibly a bug in deal ?
