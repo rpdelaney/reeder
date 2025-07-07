@@ -2,34 +2,32 @@
     parallel = true
 
 [pre-commit.commands.format]
+    glob = "*.py"
     name = "lint, fix, and format the code"
     run = "uv run --frozen ruff check --fix {staged_files} && uv run --frozen ruff format {staged_files}"
     stage_fixed = true
-    glob = "*.py"
     tags = ["lint", "format", "python"]
 
 [pre-commit.commands.lint_types]
+    glob = "*.py"
     name = "check static types"
     run = "uv run --frozen mypy {staged_files}"
-    glob = "*.py"
     tags = ["lint", "python"]
 
 [pre-commit.commands.shellcheck]
+    glob = "./scripts/*"
     name = "run shellcheck"
     run = "uv run shellcheck {staged_files}"
-    glob = "./scripts/*"
     tags = ["lint", "shell"]
 
 # TODO: deal lint fails. possibly a bug in deal ?
 #[pre-commit.commands.lint_contracts]
+#    exclude = ["tests/*"]
+#    glob = "*.py"
 #    name = "lint contracts in code"
 #    run = "uv run --frozen python3 -m deal lint {staged_files}"
-#    glob = "*.py"
-#    exclude = [
-#        "tests/*"
-#    ]
 
 [pre-commit.commands.legacy]
-    run = "uv run --frozen pre-commit run --all-files --show-diff-on-failure"
     follow = true
+    run = "uv run --frozen pre-commit run --all-files --show-diff-on-failure"
     stage_fixed = true
