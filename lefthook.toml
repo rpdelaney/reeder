@@ -6,16 +6,19 @@
     run = "uv run --frozen ruff check --fix {staged_files} && uv run --frozen ruff format {staged_files}"
     stage_fixed = true
     glob = "*.py"
+    tags = ["lint", "format", "python"]
 
 [pre-commit.commands.lint_types]
     name = "check static types"
     run = "uv run --frozen mypy {staged_files}"
     glob = "*.py"
+    tags = ["lint", "python"]
 
 [pre-commit.commands.shellcheck]
     name = "run shellcheck"
     run = "uv run shellcheck {staged_files}"
     glob = "./scripts/*"
+    tags = ["lint", "shell"]
 
 # TODO: deal lint fails. possibly a bug in deal ?
 #[pre-commit.commands.lint_contracts]
