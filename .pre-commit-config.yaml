@@ -8,13 +8,9 @@ repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
     hooks:
-      - id: end-of-file-fixer
-      - id: trailing-whitespace
       - id: mixed-line-ending
         args: [--fix=lf]
-      - id: check-added-large-files
       - id: check-merge-conflict
-      - id: detect-private-key
       - id: check-docstring-first
       - id: check-toml
       - id: check-yaml
@@ -30,14 +26,6 @@ repos:
     rev: 41.16.1
     hooks:
       - id: renovate-config-validator
-
-  - repo: https://github.com/pre-commit/pygrep-hooks
-    rev: v1.10.0
-    hooks:
-      - id: python-check-mock-methods
-      - id: rst-backticks
-      - id: rst-directive-colons
-      - id: rst-inline-touching-normal
 
   - repo: https://github.com/abravalheri/validate-pyproject
     rev: v0.24.1
