@@ -1,0 +1,4 @@
+---
+failure-threshold: style
+ignored: [SC1091]
+disable-ignore-pragma: false
