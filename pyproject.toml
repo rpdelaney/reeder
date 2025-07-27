@@ -3,6 +3,7 @@ name = "reeder"
 version = "0.1.1"
 description = "Textify a resource"
 readme = "README.rst"
+license = "Apache-2.0"
 requires-python = ">=3.10"
 dependencies = [
     "beautifulsoup4>=4.13.4",
@@ -18,7 +19,6 @@ dependencies = [
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Environment :: Console",
-    "License :: OSI Approved :: Apache Software License",
     "Programming Language :: Python :: 3 :: Only",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
