@@ -14,6 +14,12 @@
     run = "uv run --frozen mypy {staged_files}"
     tags = ["lint", "python"]
 
+[pre-commit.commands.dockerlint]
+    glob = "Containerfile*"
+    name = "run hadolint"
+    run = "podman run --rm --interactive hadolint/hadolint hadolint --ignore SC1091 - < {staged_files}"
+    tags = ["lint", "containerfile"]
+
 [pre-commit.commands.shellcheck]
     glob = "./scripts/*"
     name = "run shellcheck"
