@@ -5,7 +5,6 @@
     glob = "*.py"
     name = "lint, fix, and format the code"
     run = "uv run --frozen ruff check --fix {staged_files} && uv run --frozen ruff format {staged_files}"
-    stage_fixed = true
     tags = ["lint", "format", "python"]
 
 [pre-commit.commands.lint_types]
@@ -36,4 +35,3 @@
 [pre-commit.commands.legacy]
     follow = true
     run = "uv run --frozen pre-commit run --all-files --show-diff-on-failure"
-    stage_fixed = true
