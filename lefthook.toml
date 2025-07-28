@@ -40,4 +40,5 @@
     parallel = true
 
 [post-merge.commands.sync_venv]
-    command = "uv sync --frozen --locked"
+    glob = "uv.lock"
+    run = "uv sync --frozen"
