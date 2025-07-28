@@ -34,7 +34,7 @@
 
 [pre-commit.commands.legacy]
     follow = true
-    run = "uv run --frozen pre-commit run --all-files --show-diff-on-failure"
+    run = "uv run --frozen pre-commit run --show-diff-on-failure --files {staged_files}"
 
 [post-merge]
     parallel = true
