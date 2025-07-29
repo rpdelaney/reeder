@@ -1,6 +1,5 @@
 """Fetch video subtitles from a remote source."""
 
-import contextlib
 import sys
 import tempfile
 from pathlib import Path
@@ -64,7 +63,6 @@ def get_subtitles(url: httpx.URL) -> bytes:
         subs_filename = Path(temp_dir.name) / Path(f"{video_id}.en.srt")
 
     with (
-        contextlib.suppress(FileNotFoundError),
         Path.open(subs_filename, encoding="utf-8") as file,
     ):
         subtitles_data = file.read()
