@@ -25,12 +25,13 @@
     run = "uv run shellcheck {staged_files}"
     tags = ["lint", "shell"]
 
-# TODO: deal lint fails. possibly a bug in deal ?
-#[pre-commit.commands.lint_contracts]
-#    exclude = ["tests/*"]
-#    glob = "*.py"
-#    name = "lint contracts in code"
-#    run = "uv run --frozen python3 -m deal lint {staged_files}"
+
+[pre-commit.commands.lint_contracts]
+    skip = true  # TODO: deal lint fails. possibly a bug in deal ?
+    exclude = ["tests/*"]
+    glob = "*.py"
+    name = "lint contracts in code"
+    run = "uv run --frozen python3 -m deal lint {staged_files}"
 
 [pre-commit.commands.legacy]
     follow = true
