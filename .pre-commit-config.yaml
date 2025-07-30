@@ -31,8 +31,3 @@ repos:
       - id: validate-pyproject
         name: validate pyproject.toml
         additional_dependencies: ["validate-pyproject-schema-store[all]"]
-
-  - repo: https://github.com/editorconfig-checker/editorconfig-checker
-    rev: v3.3.0
-    hooks:
-      - id: editorconfig-checker

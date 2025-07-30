@@ -13,6 +13,12 @@
     run = "uv run --frozen mypy {staged_files}"
     tags = ["lint", "python"]
 
+[pre-commit.commands.editorconfig]
+    file_types = "text"
+    name = "run hadolint"
+    run = "podman run --rm --volume=$PWD:/check mstruebing/editorconfig-checker /usr/bin/editorconfig-checker {staged_files}"
+    tags = ["lint"]
+
 [pre-commit.commands.dockerlint]
     glob = "Containerfile*"
     name = "run hadolint"
