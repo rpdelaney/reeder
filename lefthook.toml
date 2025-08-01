@@ -4,8 +4,9 @@
 [pre-commit.commands.format]
     glob = "*.py"
     name = "lint, fix, and format the code"
-    run = "uv run --frozen ruff check --fix {staged_files} && uv run --frozen ruff format {staged_files}"
+    run = "uv run --frozen ruff check --fix {staged_files} && uv run --frozen ruff format --exit-non-zero-on-format {staged_files}"
     tags = ["lint", "format", "python"]
+    stage_fixed = true
 
 [pre-commit.commands.lint_types]
     glob = "*.py"
