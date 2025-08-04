@@ -13,3 +13,18 @@ reeder
 .. |STYLE| image:: https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json
     :target: https://github.com/astral-sh/ruff
 .. |LANGUAGE| image:: https://img.shields.io/pypi/pyversions/reeder
+
+reeder takes an argument and attempts to render resources at that URL as plain text on the standard output.
+
+Usage
+-----
+
+.. code-block :: console
+
+    $ uvx run reed --help
+    Usage: reed [OPTIONS] TARGET
+
+    Texitfy content found at TARGET.
+
+    Options:
+    --help  Show this message and exit.
