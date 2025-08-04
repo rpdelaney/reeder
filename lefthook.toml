@@ -20,10 +20,10 @@
     run = "podman run --rm --volume=$PWD:/check mstruebing/editorconfig-checker /usr/bin/editorconfig-checker {staged_files}"
     tags = ["lint"]
 
-[pre-commit.commands.dockerlint]
+[pre-commit.commands.containerlint]
     glob = "Containerfile*"
     name = "run hadolint"
-    run = "podman run --rm --interactive hadolint/hadolint hadolint --ignore SC1091 - < {staged_files}"
+    run = "podman run --rm hadolint/hadolint hadolint --ignore SC1091 - < {staged_files}"
     tags = ["lint", "containerfile"]
 
 [pre-commit.commands.shellcheck]
