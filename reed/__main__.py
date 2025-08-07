@@ -5,6 +5,7 @@ import sys
 import click
 import deal
 import httpx
+from rich.console import Console
 
 from reed.content import ContentRenderer
 from reed.subtitles import get_subtitles
@@ -56,9 +57,10 @@ def main(target: str) -> int:
 
 
 if __name__ == "__main__":
+    console: Console = Console()
     try:
         exit_status = main()
-    except Exception as e:  # noqa: BLE001
-        print("An unhandled exception occurred: ", e, file=sys.stderr)
+    except Exception:  # noqa: BLE001
+        console.print_exception()
         exit_status = 1
     sys.exit(exit_status)
