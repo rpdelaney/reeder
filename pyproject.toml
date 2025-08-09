@@ -60,7 +60,7 @@ addopts = [
     "--doctest-modules",
     "--strict-config",
     "--strict-markers",
-    "-rA",
+    "-rA",                  # show all extra test summary info
 ]
 filterwarnings = ["error"]
 
