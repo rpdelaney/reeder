@@ -34,11 +34,10 @@
     tags = ["lint", "containerfile"]
 
 [pre-commit.commands.shellcheck]
-    glob = "./scripts/*"
+    glob = "scripts/*"
     name = "run shellcheck"
     run = "uv run shellcheck {staged_files}"
     tags = ["lint", "shell"]
-
 
 [pre-commit.commands.lint_contracts]
     skip = true  # TODO: deal lint fails. possibly a bug in deal ?
