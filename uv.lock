@@ -1590,7 +1590,7 @@ dependencies = [
 ]
 
 [package.dev-dependencies]
-dev = [
+all = [
     { name = "deal-solver" },
     { name = "hypothesis" },
     { name = "mypy" },
@@ -1600,6 +1600,23 @@ dev = [
     { name = "pytest-cov" },
     { name = "pytest-icdiff" },
     { name = "pytest-mock" },
+    { name = "ruff" },
+    { name = "shellcheck-py" },
+    { name = "types-beautifulsoup4" },
+    { name = "yt-dlp-types" },
+]
+dev = [
+    { name = "deal-solver" },
+    { name = "hypothesis" },
+    { name = "pytest" },
+    { name = "pytest-cov" },
+    { name = "pytest-icdiff" },
+    { name = "pytest-mock" },
+]
+project = [
+    { name = "mypy" },
+    { name = "pre-commit" },
+    { name = "ptpython" },
     { name = "ruff" },
     { name = "shellcheck-py" },
     { name = "types-beautifulsoup4" },
@@ -1620,7 +1637,7 @@ requires-dist = [
 ]
 
 [package.metadata.requires-dev]
-dev = [
+all = [
     { name = "deal-solver", specifier = ">=0.1.2" },
     { name = "hypothesis", specifier = ">=6.131.0" },
     { name = "mypy", specifier = ">=1.15.0" },
@@ -1630,6 +1647,23 @@ dev = [
     { name = "pytest-cov", specifier = ">=6.1.1" },
     { name = "pytest-icdiff", specifier = ">=0.9" },
     { name = "pytest-mock", specifier = ">=3.14.0" },
+    { name = "ruff", specifier = ">=0.11.5" },
+    { name = "shellcheck-py", specifier = ">=0.10.0.1" },
+    { name = "types-beautifulsoup4", specifier = ">=4.12.0.20250204" },
+    { name = "yt-dlp-types", specifier = ">=0.0.15" },
+]
+dev = [
+    { name = "deal-solver", specifier = ">=0.1.2" },
+    { name = "hypothesis", specifier = ">=6.131.0" },
+    { name = "pytest", specifier = ">=8.3.5" },
+    { name = "pytest-cov", specifier = ">=6.1.1" },
+    { name = "pytest-icdiff", specifier = ">=0.9" },
+    { name = "pytest-mock", specifier = ">=3.14.0" },
+]
+project = [
+    { name = "mypy", specifier = ">=1.15.0" },
+    { name = "pre-commit", specifier = ">=4.2.0" },
+    { name = "ptpython", specifier = ">=3.0.29" },
     { name = "ruff", specifier = ">=0.11.5" },
     { name = "shellcheck-py", specifier = ">=0.10.0.1" },
     { name = "types-beautifulsoup4", specifier = ">=4.12.0.20250204" },
