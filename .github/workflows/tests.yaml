@@ -44,7 +44,7 @@ jobs:
             pre-commit-cache-${{ runner.os }}-
       - name: Install dependencies if cached venv not found
         if: steps.cached-dependencies.outputs.cache-hit != 'true'
-        run: uv sync --all-groups --frozen
+        run: uv sync --no-progress --all-groups --frozen
 
       - name: run lefthook
         run: uv tool run lefthook run pre-commit --all-files
@@ -76,7 +76,7 @@ jobs:
           key: venv-${{ runner.os }}-${{ matrix.python-version }}-${{ hashFiles('**/uv.lock') }}
       - name: Install dependencies if cached venv not found
         if: steps.cached-dependencies.outputs.cache-hit != 'true'
-        run: uv sync --all-extras --frozen
+        run: uv sync --no-progress --all-extras --frozen
 
       - name: Run tests
         run: uv run --frozen pytest
