@@ -27,8 +27,9 @@
     tags = ["lint", "containerfile"]
 
 [pre-commit.commands.lint_ci]
+    files = "git ls-files -- .github/workflows/"
     name = "run zizmor"
-    run = "podman run --rm --volume=$PWD:/workspace ghcr.io/zizmorcore/zizmor:latest /workspace/.github/workflows"
+    run = "podman run --rm --volume=$PWD:/workspace ghcr.io/zizmorcore/zizmor:latest /workspace/.github/workflows # {files}"
     pass_filenames = false
     tags = ["lint", "containerfile"]
 
