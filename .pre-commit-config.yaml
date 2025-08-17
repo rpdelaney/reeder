@@ -14,10 +14,3 @@ repos:
     rev: 41.16.1
     hooks:
       - id: renovate-config-validator
-
-  - repo: https://github.com/abravalheri/validate-pyproject
-    rev: v0.24.1
-    hooks:
-      - id: validate-pyproject
-        name: validate pyproject.toml
-        additional_dependencies: ["validate-pyproject-schema-store[all]"]
