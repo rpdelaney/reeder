@@ -55,4 +55,4 @@
 
 [post-merge.commands.sync_venv]
     glob = "uv.lock"
-    run = "uv sync --frozen"
+    run = "uv sync --all-groups --frozen"
