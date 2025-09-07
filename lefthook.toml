@@ -1,5 +1,4 @@
 [pre-commit]
-    parallel = true
 
 [pre-commit.commands.format]
     glob = "*.py"
@@ -51,7 +50,6 @@
     run = "uv run --frozen pre-commit run --show-diff-on-failure --files {staged_files}"
 
 [post-merge]
-    parallel = true
 
 [post-merge.commands.sync_venv]
     glob = "uv.lock"
