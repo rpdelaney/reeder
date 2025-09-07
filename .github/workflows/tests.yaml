@@ -47,7 +47,7 @@ jobs:
         run: uv sync --no-progress --all-groups --frozen
 
       - name: run lefthook
-        run: uv tool run lefthook run pre-commit --all-files
+        run: uv tool run lefthook run --no-tty pre-commit --all-files
 
   test:
     strategy:
