@@ -36,7 +36,7 @@
 [pre-commit.commands.shellcheck]
     glob = "scripts/*"
     name = "run shellcheck"
-    run = "uv run shellcheck {staged_files}"
+    run = "uv run --frozen shellcheck {staged_files}"
     tags = ["lint", "shell"]
 
 [pre-commit.commands.lint_contracts]
