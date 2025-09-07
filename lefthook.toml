@@ -23,7 +23,7 @@
 [pre-commit.commands.containerlint]
     glob = "Containerfile*"
     name = "run hadolint"
-    run = "podman run --rm hadolint/hadolint hadolint --ignore SC1091 - < {staged_files}"
+    run = "podman run --rm ghcr.io/hadolint/hadolint hadolint --ignore SC1091 - < {staged_files}"
     tags = ["lint", "containerfile"]
 
 [pre-commit.commands.lint_ci]
