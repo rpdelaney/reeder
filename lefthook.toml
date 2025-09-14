@@ -20,6 +20,7 @@
     tags = ["lint"]
 
 [pre-commit.commands.containerlint]
+    skip = true  # TODO: seems to time out in CI
     glob = "Containerfile*"
     name = "run hadolint"
     run = "podman run --rm ghcr.io/hadolint/hadolint hadolint --ignore SC1091 - < {staged_files}"
