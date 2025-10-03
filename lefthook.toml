@@ -4,40 +4,40 @@
 [pre-commit.commands.format]
     glob = "*.py"
     name = "lint, fix, and format the code"
-    run = "uv run --frozen ruff check --fix {staged_files} && uv run --frozen ruff format --exit-non-zero-on-format {staged_files}"
+    run = "timeout 120 uv run --frozen ruff check --fix {staged_files} && uv run --frozen ruff format --exit-non-zero-on-format {staged_files}"
     tags = ["lint", "format", "python"]
     stage_fixed = true
 
 [pre-commit.commands.lint_types]
     glob = "*.py"
     name = "check static types"
-    run = "uv run --frozen mypy {staged_files}"
+    run = "timeout 120 uv run --frozen mypy {staged_files}"
     tags = ["lint", "python"]
 
 [pre-commit.commands.editorconfig]
     file_types = "text"
     name = "run hadolint"
-    run = "podman run --rm --volume=$PWD:/check mstruebing/editorconfig-checker /usr/bin/editorconfig-checker {staged_files}"
+    run = "timeout 120 podman run --rm --volume=$PWD:/check mstruebing/editorconfig-checker /usr/bin/editorconfig-checker {staged_files}"
     tags = ["lint"]
 
 [pre-commit.commands.containerlint]
     skip = true  # TODO: seems to time out in CI
     glob = "Containerfile*"
     name = "run hadolint"
-    run = "podman run --rm ghcr.io/hadolint/hadolint hadolint --ignore SC1091 - < {staged_files}"
+    run = "timeout 120 podman run --rm ghcr.io/hadolint/hadolint hadolint --ignore SC1091 - < {staged_files}"
     tags = ["lint", "containerfile"]
 
 [pre-commit.commands.lint_ci]
     files = "git ls-files -- .github/workflows/"
     name = "run zizmor"
-    run = "podman run --rm --volume=$PWD:/workspace ghcr.io/zizmorcore/zizmor:latest /workspace/.github/workflows # {files}"
+    run = "timeout 120 podman run --rm --volume=$PWD:/workspace ghcr.io/zizmorcore/zizmor:latest /workspace/.github/workflows # {files}"
     pass_filenames = false
     tags = ["lint", "containerfile"]
 
 [pre-commit.commands.shellcheck]
     glob = "scripts/*"
     name = "run shellcheck"
-    run = "uv run --frozen shellcheck {staged_files}"
+    run = "timeout 120 uv run --frozen shellcheck {staged_files}"
     tags = ["lint", "shell"]
 
 [pre-commit.commands.lint_contracts]
@@ -45,11 +45,11 @@
     exclude = ["tests/*"]
     glob = "*.py"
     name = "lint contracts in code"
-    run = "uv run --frozen python3 -m deal lint {staged_files}"
+    run = "timeout 120 uv run --frozen python3 -m deal lint {staged_files}"
 
 [pre-commit.commands.legacy]
     follow = true
-    run = "uv run --frozen pre-commit run --show-diff-on-failure --files {staged_files}"
+    run = "timeout 120 uv run --frozen pre-commit run --show-diff-on-failure --files {staged_files}"
 
 [post-merge]
 
