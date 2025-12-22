@@ -57,6 +57,7 @@ def main(target: str) -> int:
 
 
 if __name__ == "__main__":
+    exit_status = 0
     console: Console = Console()
     try:
         exit_status = main()
