@@ -62,16 +62,13 @@ def get_subtitles(url: httpx.URL) -> bytes:
         video_id = info_dict.get("id")
         subs_filename = Path(temp_dir.name) / Path(f"{video_id}.en.srt")
 
-    with (
-        Path.open(subs_filename, encoding="utf-8") as file,
-    ):
-        subtitles_data = file.read()
+    subtitles_data = Path.open(subs_filename).read()
 
     result: list[str] = [""]
-    if subtitles_data:
-        for line in srt.parse(subtitles_data):
-            content = line.content.strip().split("\n")[0]
-            if content not in result[-1:]:
-                result.append(content)
-        return "\n".join(result).encode()
-    return b""
+    for subtitle in srt.parse(subtitles_data):
+        text = subtitle.content.strip()
+        for line in text.split("\n"):
+            if line not in result[-1:][0]:
+                result.append(line)
+
+    return "\n".join(result).encode()
