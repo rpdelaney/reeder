@@ -1,6 +1,6 @@
 [project]
 name = "reeder"
-version = "0.1.2"
+version = "0.1.3"
 description = "Textify a resource"
 readme = "README.rst"
 license = "Apache-2.0"
