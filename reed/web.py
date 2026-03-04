@@ -1,9 +1,12 @@
 """Handle web requests."""
 
+import platform
 from urllib.parse import urlparse
 
 import deal
 import httpx
+
+from reed import __version__
 
 
 @deal.has()
@@ -28,8 +31,13 @@ def fetch(
     timeout: int = 10,
 ) -> httpx.Response:
     """Get the content from a page at a URL."""
+    ua = (
+        f"reeder/{__version__} "
+        f"({platform.python_implementation()}/{platform.python_version()})"
+    )
     return client.get(
         url=url,
         timeout=timeout,
         follow_redirects=True,
+        headers={"User-Agent": ua},
     )
