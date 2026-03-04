@@ -16,7 +16,7 @@
 
 [pre-commit.commands.editorconfig]
     file_types = "text"
-    name = "run hadolint"
+    name = "run editorconfig"
     run = "timeout 120 podman run --rm --volume=$PWD:/check mstruebing/editorconfig-checker /usr/bin/editorconfig-checker {staged_files}"
     tags = ["lint"]
 
