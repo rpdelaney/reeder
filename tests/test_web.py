@@ -33,7 +33,12 @@ class TestFetch:
         response = fetch(client, httpx.URL(url), timeout)
 
         assert client.method_calls == [
-            call.get(url=url, timeout=timeout, follow_redirects=True)
+            call.get(
+                url=url,
+                timeout=timeout,
+                follow_redirects=True,
+                headers={"User-Agent": "reeder/0.1.3 (CPython/3.14.6)"},
+            )
         ]
         assert response.status_code == HTTPStatus.OK
         assert response.content == b"OK"
