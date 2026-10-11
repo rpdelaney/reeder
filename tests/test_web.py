@@ -37,7 +37,7 @@ class TestFetch:
                 url=url,
                 timeout=timeout,
                 follow_redirects=True,
-                headers={"User-Agent": "reeder/0.1.3 (CPython/3.14.6)"},
+                headers={"User-Agent": "reeder/0.1.3 (CPython/3.14.8)"},
             )
         ]
         assert response.status_code == HTTPStatus.OK
