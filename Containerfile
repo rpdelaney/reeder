@@ -1,4 +1,4 @@
-FROM python:3.14-slim-bookworm
+FROM python:3.15-slim-bookworm
 RUN apt-get update && apt-get upgrade -y \
 &&  apt-get clean \
 &&  rm -rf /var/lib/apt/lists/*
